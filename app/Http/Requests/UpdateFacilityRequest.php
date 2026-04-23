@@ -23,6 +23,7 @@ class UpdateFacilityRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => ['required', 'integer', 'exists:facilities,id'],
             'name' => ['required', 'string', 'max:255', 'unique:facilities,name,' . $this->route('facility')->id],
         ];
     }
