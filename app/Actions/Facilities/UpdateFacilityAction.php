@@ -6,9 +6,10 @@ use App\Models\Facility;
 
 class UpdateFacilityAction
 {
-    public function execute($facility, $name): Facility
+    public function execute(Facility $facility, array $data): Facility
     {
-        $facility->name = $name;
+        $facility->name = $data['name'];
+        $facility->address = $data['address'];
         $facility->save();
 
         return $facility;
