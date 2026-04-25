@@ -11,11 +11,11 @@ return new class extends Migration
         Schema::create('user_schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('facility_id')->constrained('facilities')->cascadeOnDelete();
             $table->enum('day', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
             $table->time('start_time');
             $table->time('end_time');
             $table->time('duration');
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

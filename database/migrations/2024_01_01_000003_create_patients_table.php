@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('date_of_birth');
             $table->string('gender');
+            $table->string('phone')->unique();
             $table->string('address');
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_phone');

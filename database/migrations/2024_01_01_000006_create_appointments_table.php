@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('type', ['consultation', 'follow_up', 'emergency']);
             $table->string('reason')->nullable();
             $table->string('cancellation_reason')->nullable();
-            $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
     }
