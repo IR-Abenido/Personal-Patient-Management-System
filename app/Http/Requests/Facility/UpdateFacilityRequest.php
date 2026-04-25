@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Facility;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,8 +23,8 @@ class UpdateFacilityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'integer', 'exists:facilities,id'],
             'name' => ['required', 'string', 'max:255', 'unique:facilities,name,' . $this->route('facility')->id],
+            'address' => ['required', 'string', 'max:255', 'unique:facilities,address,' . $this->route('facility')->id],
         ];
     }
 }
