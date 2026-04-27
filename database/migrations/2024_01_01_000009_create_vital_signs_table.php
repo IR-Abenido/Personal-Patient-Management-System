@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('temperature')->nullable();
             $table->integer('weight_kg')->nullable();
             $table->integer('height_cm')->nullable();
+            $table->integer('respiratory_rate')->nullable();
+            $table->integer('oxygen_saturation')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });
