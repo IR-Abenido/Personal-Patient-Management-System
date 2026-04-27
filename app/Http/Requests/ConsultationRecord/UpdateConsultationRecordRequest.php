@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Schedule;
+namespace App\Http\Requests\ConsultationRecord;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateScheduleRequest extends FormRequest
+class UpdateConsultationRecordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,10 @@ class UpdateScheduleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facility_id' => ['required', 'integer', 'exists:facilities,id'],
-            'day' => ['required', 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday'],
-            'start_time' => ['required', 'date_format:H:i:s'],
-            'end_time' => ['required', 'date_format:H:i:s', 'after:start_time'],
+            'diagnosis' => ['required', 'string'],
+            'notes' => ['nullable', 'string'],
+            'follow_up_date' => ['nullable', 'date'],
+            'follow_up_notified_at' => ['nullable', 'date'],
         ];
     }
 }
